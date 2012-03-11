@@ -1,4 +1,4 @@
-EmbassyplaceCom::Application.configure do
+EmbassyPlace::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -28,4 +28,8 @@ EmbassyplaceCom::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Mongo
+  ENV['MONGO_URI'] = 'mongodb://127.0.0.1:27017/embassy-place'
+
 end

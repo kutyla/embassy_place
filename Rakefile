@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-EmbassyplaceCom::Application.load_tasks
+EmbassyPlace::Application.load_tasks

@@ -5,7 +5,13 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Database
+gem 'bson_ext'
+gem 'mongoid'
 
+# Views
+gem 'haml'
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,3 +41,16 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :development do
+  gem 'heroku'
+  gem 'foreman'
+end
+
+group :staging do
+  gem 'thin'
+end
+
+group :production do
+  gem 'thin'
+end
