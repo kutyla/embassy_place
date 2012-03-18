@@ -30,6 +30,6 @@ EmbassyPlace::Application.configure do
   config.assets.debug = true
 
   # Mongo
-  ENV['MONGO_URI'] = 'mongodb://127.0.0.1:27017/embassy-place'
+  ENV['MONGO_URI'] = 'mongodb://127.0.0.1:27017/embassy-place-development'
 
 end

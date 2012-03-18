@@ -29,7 +29,10 @@ EmbassyPlace::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
-
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Mongo
+  ENV['MONGO_URI'] = 'mongodb://127.0.0.1:27017/embassy-place-test'
+
 end
