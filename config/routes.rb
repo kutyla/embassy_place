@@ -1,6 +1,9 @@
 EmbassyPlace::Application.routes.draw do
   resources :sessions, only: [:new, :create]
 
+  get "gallery", to: "home#gallery"
+  get "features", to: "home#features"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
