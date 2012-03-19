@@ -1,14 +1,14 @@
 class SessionsController < Clearance::SessionsController
-  class UserSession < Struct.new(:email, :password); end
-
   def new
     @user_struct = UserSession.new
   end
 
   def create
-    @user_struct = UserSession.new(params[:user_session][:email], params[:user_session][:password]) rescue UserSession.new
+    email = params[:user_session][:email]
+    password = params[:user_session][:password]
+    @user_struct = UserSession.new(email, password)
 
-    if @user = User.authenticate(@user_struct.email, @user_struct.password)
+    if @user = @user_struct.authenticate!
       sign_in(@user)
       flash[:success] = "Welcome back!"
       redirect_to root_path

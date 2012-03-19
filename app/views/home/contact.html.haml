@@ -1,0 +1,3 @@
+= form_for :email, { url: contact_path, html: { id: 'new_email' } } do
+  = text_field_tag "email[message]", @email.message
+  = submit_tag "Send"

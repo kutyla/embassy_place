@@ -15,7 +15,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "should post user session data" do
-    post :create, { user: {} }
+    post :create, { user_session: {} }
 
     assert_response 401
     assert_nil current_user

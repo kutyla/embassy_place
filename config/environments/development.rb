@@ -22,14 +22,18 @@ EmbassyPlace::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-
   # Do not compress assets
   config.assets.compress = false
 
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  # Mongo
+  # Additional Settings
+  config.action_mailer.delivery_method = :sendmail
+
+  # Environmental Variables
   ENV['MONGO_URI'] = 'mongodb://127.0.0.1:27017/embassy-place-development'
+  ENV["MAILER_TO"] = "steve@copyright1984.com"
+  ENV["MAILER_FROM"] = "no-reply@embassy-place.com"
 
 end

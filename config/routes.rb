@@ -3,6 +3,8 @@ EmbassyPlace::Application.routes.draw do
 
   get "gallery", to: "home#gallery"
   get "features", to: "home#features"
+  get "contact", to: "home#contact"
+  post "contact", to: "home#create_contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

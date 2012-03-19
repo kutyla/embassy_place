@@ -32,7 +32,9 @@ EmbassyPlace::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
-  # Mongo
+  # Environmental Variables
   ENV['MONGO_URI'] = 'mongodb://127.0.0.1:27017/embassy-place-test'
+  ENV["MAILER_TO"] = "site@embassy-place.com"
+  ENV["MAILER_FROM"] = "no-reply@embassy-place.com"
 
 end

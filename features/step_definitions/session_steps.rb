@@ -40,9 +40,3 @@ When /^she logs in with an incorrect password$/ do
     click_button "Sign In"
   end
 end
-
-Then /^(?:she should )?(.*)see an? (.*) message$/ do |visibility, message_type|
-  message = has_selector?(".#{message_type}", text: /\w+/, visible: true)
-  # e.g. visibility == "not"
-  assert (visibility.blank? ? message : !message)
-end

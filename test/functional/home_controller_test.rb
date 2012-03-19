@@ -21,4 +21,28 @@ class HomeControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get contact" do
+    get :contact
+    assert_response :success
+  end
+
+  test "should post contact" do
+    post :create_contact, { email: {} }
+    assert_response 400
+  end
+
+  test "should send email after post contact" do
+    message = "some message"
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      post :create_contact, { email: { message: message } }
+    end
+
+    email = ActionMailer::Base.deliveries.last
+    assert_equal ContactMailer.default_params[:to], email.to[0]
+    assert_equal "Email from Site", email.subject
+    assert_match(/#{message}/, email.encoded)
+
+    assert_redirected_to root_path
+  end
+
 end
