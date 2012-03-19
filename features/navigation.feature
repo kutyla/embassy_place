@@ -7,9 +7,8 @@ Scenario: Using the navigation
   When she visits the homepage
   Then she should be able to browse the site
 
-@pending
+@wip
 Scenario: Download the brochure
   Given a visitor
   When she visits the homepage
   Then she should be able to download the brochure
-

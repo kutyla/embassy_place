@@ -13,7 +13,7 @@ end
 Then /^she should be able to browse the site$/ do
   original_page = current_path
 
-  browsable_pages = ["homepage", "gallery", "features", "contact"]
+  browsable_pages = ["homepage", "gallery", "features", "contact", "posts"]
   browsable_pages.each do |page_name|
     click_link("nav-#{page_name}")
     step(%Q{she should see the #{page_name} page})

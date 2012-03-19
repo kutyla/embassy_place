@@ -6,6 +6,7 @@ EmbassyPlace::Application.routes.draw do
   get "contact", to: "home#contact"
   post "contact", to: "home#create_contact"
 
+  resources :posts
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
