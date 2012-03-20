@@ -1,3 +1,8 @@
-%section
-  %h1 Posts
+%section.padded
+  %h1
+    = image_tag "posts/pencil.png", { alt: 'Pencil' }
+    Blog Posts
+  %br
   = render @posts
+
+  = paginate @posts

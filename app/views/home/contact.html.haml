@@ -1,3 +1,28 @@
-= form_for :email, { url: contact_path, html: { id: 'new_email' } } do
-  = text_field_tag "email[message]", @email.message
-  = submit_tag "Send"
+%section.padded
+  .group
+    %h1 Contact Us
+    %p
+      2219 Teakwood Cir # B, Highland, IN
+      %br
+      (219) 924-6500 ‎
+    %p
+      Office Hours:
+      %br
+      Monday-Friday: 9:00 AM - 5:00 PM
+      %br
+      Saturday: 9:00 AM - 5:00 PM
+      %br
+      Sunday: 1:00 PM - 5:00 PM
+
+  .group
+    %h2 Or Send Us an Email
+    = form_for :email, { url: contact_path, html: { id: 'new_email' } } do
+      = label_tag 'email[message]', "Message"
+      %br
+      = text_area_tag "email[message]", @email.message
+      .clear
+      = submit_tag "Send"
+
+  .group
+    %h3 Map
+    %p TODO: Generate map

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bson_ext', '1.6.1'
 gem 'clearance', '0.13.2'
+gem 'faker'
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
@@ -23,7 +24,6 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'database_cleaner'
 end
 
