@@ -9,20 +9,31 @@
     = csrf_meta_tags
 
   %body
-    - flash.each do |type, message|
-      %div{ class: type }= message
+    #header
+      .container
+        %nav
+          #banner.shadow
+            .content
+              = link_to "Gallery", gallery_path, { id: "nav-gallery" }
+              = link_to "Features", features_path, { id: "nav-features" }
+              = link_to "Blog", posts_path, { id: "nav-posts" }
+              = link_to "Contact", contact_path, { id: "nav-contact", class: 'last' }
+              Highland, IN
 
-    %nav
-      = link_to "Gallery", gallery_path, { id: "nav-gallery" }
-      = link_to "Features", features_path, { id: "nav-features" }
-      = link_to "Blog", posts_path, { id: "nav-posts" }
-      = link_to "Contact", contact_path, { id: "nav-contact" }
-      = link_to "#home", root_path, { id: "nav-homepage" }
+          - flash.each do |type, message|
+            .message{ class: type }= message
 
-    = yield
+          = link_to root_path, { id: "nav-homepage" } do
+            = image_tag("nav/logo.png", { alt: "Embassy Place Apartments", height: 44})
 
-  %footer
-    %p
-      © Copyright #{Time.now.year}, All Rights Reserved, Embassy Place
-      %br
-      = link_to "Get the Brochure", image_path('#'), { id: "brochure-pdf" }
+    #frame
+      #canvas.container
+        #page
+          = yield
+
+    %footer.container
+      .content
+        %p
+          © Copyright #{Time.now.year}, All Rights Reserved, Embassy Place
+          %br
+          = link_to "Get the Brochure", image_path('#'), { id: "brochure-pdf" }
