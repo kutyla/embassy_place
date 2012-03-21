@@ -43,11 +43,31 @@ body
 .white
   background: transparent url(image-path("background-white.png")) repeat scroll 0px 0px
 
-body.home.index
-  #opening-description
-    position: absolute
-    left: -60px
-    bottom: -50px
-    width: 400px
-    padding: 2em 1em 1em 1em
-    text-align: center
+body
+  &.home.index
+    #opening-description
+      position: absolute
+      left: -60px
+      bottom: -50px
+      width: 400px
+      padding: 2em 1em 1em 1em
+      text-align: center
+
+  &.home.gallery
+    #gallery
+      position: relative
+      display: inline-block
+      text-align: center
+      height: 480px
+      width: 640px
+      .gallery-image
+        position: absolute
+
+      #thumbnails
+        position: absolute
+        bottom: -50px
+        left: -30px
+        right: -30px
+        height: 75px
+        .thumbnail
+          float: left
