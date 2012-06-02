@@ -9,6 +9,12 @@
     = csrf_meta_tags
 
   %body{ class: "#{controller_name} #{action_name}" }
+    %section#modal
+      %h1
+        = yield :modal_title
+        %span.small= link_to "(Close)", "#", { id: "link-close-modal" }
+      = yield :modal_content
+
     #header
       .container
         %nav
@@ -36,4 +42,12 @@
         %p
           © Copyright #{Time.now.year}, All Rights Reserved, Embassy Place
           %br
-          = link_to "Get the Brochure", '#', { id: "brochure-pdf" }
+          = link_to "Get the Brochure", asset_path('embassy_place.pdf'), { id: "brochure-pdf" }
+
+    :javascript
+      $("#link-close-modal").click(function(){
+        Embassy.Modal.close();
+        return false;
+      })
+
+    = yield :scripts

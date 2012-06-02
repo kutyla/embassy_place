@@ -13,3 +13,6 @@
       .thumbnail= image_tag "gallery/video-thumbnail.png", { alt: "video" }
       .clear
 
+- content_for :scripts do
+  :javascript
+    Embassy.SlideShow.init();
