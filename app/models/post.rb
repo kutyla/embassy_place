@@ -17,6 +17,10 @@ class Post
     end
   end
 
+  def to_param
+    self.permalink
+  end
+
   private
 
   def set_permalink?

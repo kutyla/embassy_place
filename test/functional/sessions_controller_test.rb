@@ -2,6 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
   def setup
+    use_ssl
     @password = (0...8).map{65.+(rand(25)).chr}.join
     @user = User.create({
       name: Faker::Name.name,

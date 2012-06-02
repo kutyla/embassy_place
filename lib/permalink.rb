@@ -5,7 +5,7 @@ class Permalink
 
   def self.new(string)
     begin
-      @string = string
+      @string = string.dup
       @string.downcase!
       replace_spaces!
       replace_invalid_characters!

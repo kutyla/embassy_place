@@ -15,6 +15,5 @@ Scenario: A visitor wants to see the apartments
 Scenario: See the gallery
   Then she should see a gallery
 
-@pending
-Scenario: Browse the gallery
-  Then she should see all the photos
+# Scenario: Browse the gallery
+#   Then she should see all the photos

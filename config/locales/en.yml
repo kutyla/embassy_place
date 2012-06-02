@@ -1,5 +1,16 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  controllers:
+    sessions:
+      create:
+        error: "Sorry, we could not authenticate you. Please try again."
+        success: "Welcome back!"
+    posts:
+      create:
+        success: "Post was successfully created."
+        failure: "Please make sure there's a title and content."
+      update:
+        success: "Post was successfully updated."
+        failure: "Please make sure there's a title and content."
+      destroy:
+        success: "Post was successfully destroyed."
+

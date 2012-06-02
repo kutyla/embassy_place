@@ -1,5 +1,6 @@
 EmbassyPlace::Application.routes.draw do
-  resources :sessions, only: [:new, :create]
+  get :login, to: "sessions#new"
+  post :login, to: "sessions#create"
 
   get "gallery", to: "home#gallery"
   get "features", to: "home#features"

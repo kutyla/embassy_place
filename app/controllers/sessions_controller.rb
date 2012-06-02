@@ -1,4 +1,6 @@
 class SessionsController < Clearance::SessionsController
+  before_filter :require_ssl
+
   def new
     @user_struct = UserSession.new
   end
@@ -10,10 +12,10 @@ class SessionsController < Clearance::SessionsController
 
     if @user = @user_struct.authenticate!
       sign_in(@user)
-      flash[:success] = "Welcome back!"
+      flash[:success] = t(".controllers.sessions.create.success")
       redirect_to root_path
     else
-      flash.now[:error] = "Sorry, we could not authenticate you. Please try again."
+      flash.now[:error] = t(".controllers.sessions.create.error")
       render :new, status: 401
     end
   end
