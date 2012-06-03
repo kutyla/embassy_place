@@ -50,6 +50,15 @@ EmbassyPlace::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'app3234767.mailgun.org',
+    :authentication => :plain,
+  }
+  ActionMailer::Base.delivery_method = :smtp
 
   # Enable threaded mode
   # config.threadsafe!
