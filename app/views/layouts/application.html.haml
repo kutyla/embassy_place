@@ -15,6 +15,16 @@
         %span.small= link_to "(Close)", "#", { id: "link-close-modal" }
       = yield :modal_content
 
+    - if current_user
+      %nav#user-header
+        .container
+          %span Admin Navigation for #{current_user.name}
+          %span= link_to "+Create Post", new_post_path
+          - if @post.present? && !@post.new_record
+            %span= link_to "Edit This Post", edit_post_path(@post)
+          %span= link_to "Logout", logout_path
+
+
     #header
       .container
         %nav
@@ -40,9 +50,15 @@
     %footer.container
       .content
         %p
-          © Copyright #{Time.now.year}, All Rights Reserved, Embassy Place
+          © Copyright #{Time.now.year}, All Rights Reserved, Embassy Place Apartments
           %br
+          2219 Teakwood Cir #B, Highland, IN
+          %br
+          (219) 924-6500
+        %p
           = link_to "Get the Brochure", asset_path('embassy_place.pdf'), { id: "brochure-pdf" }
+        %br
+        %br
 
     :javascript
       $("#link-close-modal").click(function(){

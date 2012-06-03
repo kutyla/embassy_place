@@ -1,6 +1,7 @@
 EmbassyPlace::Application.routes.draw do
   get :login, to: "sessions#new"
   post :login, to: "sessions#create"
+  match :logout, to: "sessions#logout"
 
   get "gallery", to: "home#gallery"
   get "features", to: "home#features"

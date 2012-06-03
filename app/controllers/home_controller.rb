@@ -12,19 +12,20 @@ class HomeController < ApplicationController
   end
 
   def contact
-    @email = Email.new
+    @note = Note.new
   end
 
   def create_contact
-    @email = Email.new(params[:email][:message])
+    @note = Note.new(params[:note])
 
-    if @email.valid?
-      ContactMailer.question_email(@email.message).deliver
-      flash[:success] = "Thanks for your message! We'll get back to you as soon as possible."
+    if @note.valid?
+      ContactMailer.question_email(params[:note]).deliver
+      flash[:success] = t(".controllers.home.create_contact.success")
       redirect_to root_path
     else
-      flash.now[:error] = "Some error."
+      flash.now[:error] = t(".controllers.home.create_contact.error")
       render :contact, status: 400
     end
   end
+
 end

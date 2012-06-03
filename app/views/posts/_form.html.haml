@@ -1,11 +1,9 @@
 = form_for @post do |form|
-  = form.label :title
-  = form.text_field :title
-
-  = form.label :permalink
-  = form.text_field :permalink, { disabled: true }
-
-  = form.label :content
-  = form.text_area :content
+  .field
+    = form.label :title
+    = form.text_field :title
+  .field
+    = form.label :content
+    = form.text_area :content
 
   = form.submit

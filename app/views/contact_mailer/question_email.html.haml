@@ -6,4 +6,14 @@
 
   %body
     %h1 Email from Site
-    %p= @message
+    %p
+      From: #{@name}
+      %br
+      Email: #{@email}
+      %br
+      Phone: #{@phone}
+
+    %p
+      Message:
+      %br
+      = @message

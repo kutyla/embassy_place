@@ -1,10 +1,12 @@
 %section.padded.white
+  = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=41.5316,-87.4760&zoom=13&size=300x200&sensor=false&markers=color:0x333333%7C41.5316,-87.4760", { class: "right shadow" }
+
   .group
     %h1 Contact Us
     %p
-      2219 Teakwood Cir # B, Highland, IN
+      2219 Teakwood Cir #B, Highland, IN
       %br
-      (219) 924-6500 ‎
+      (219) 924-6500
     %p
       Office Hours:
       %br
@@ -15,14 +17,18 @@
       Sunday: 1:00 PM - 5:00 PM
 
   .group
-    %h2 Or Send Us an Email
-    = form_for :email, { url: contact_path, html: { id: 'new_email' } } do
-      = label_tag 'email[message]', "Message"
-      %br
-      = text_area_tag "email[message]", @email.message
-      .clear
+    %h2 ...Or Send Us an Email
+    = form_for @note, { url: contact_path, html: { id: 'new_note' } } do |form|
+      .field
+        = form.label :name, "Your Name*"
+        = form.text_field :name
+      .field
+        = form.label :email, "Email*"
+        = form.text_field :email
+      .field
+        = form.label :phone, "Phone"
+        = form.text_field :phone
+      .field
+        = form.label :message, "Message*"
+        = form.text_area :message
       = submit_tag "Send"
-
-  .group
-    %h3 Map
-    %p TODO: Generate map

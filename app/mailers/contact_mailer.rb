@@ -1,9 +1,13 @@
 class ContactMailer < ActionMailer::Base
-  default to: ENV["MAILER_TO"]
-  default from: ENV["MAILER_FROM"]
+  self.default to: ENV["MAILER_TO"],
+    from: ENV["MAILER_FROM"]
 
-  def question_email(message)
-    @message = message
+  def question_email(attributes={})
+    @name = attributes[:name]
+    @email = attributes[:email]
+    @message = attributes[:message]
+    @phone = attributes[:phone]
+
     mail({ subject: "Email from Site" })
   end
 

@@ -27,14 +27,14 @@ class HomeControllerTest < ActionController::TestCase
   end
 
   test "should post contact" do
-    post :create_contact, { email: {} }
+    post :create_contact, { note: {} }
     assert_response 400
   end
 
   test "should send email after post contact" do
     message = "some message"
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      post :create_contact, { email: { message: message } }
+      post :create_contact, { note: { email: Faker::Internet.email, name: Faker::Company.name, message: message } }
     end
 
     email = ActionMailer::Base.deliveries.last
