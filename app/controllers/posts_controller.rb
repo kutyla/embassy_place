@@ -5,11 +5,13 @@ class PostsController < ApplicationController
   before_filter :require_user, :require_ssl, only: @user_actions
 
   def index
-    @posts = Post.order_by([:created_at, :desc]).page(params[:page]).per(PER_PAGE)
+    @posts = Post.order_by([:placement, :desc]).page(params[:page]).per(PER_PAGE)
   end
 
   def show
     @post = Post.find_by_permalink(params[:id])
+    @next = @post.next
+    @previous = @post.previous
   end
 
   def new

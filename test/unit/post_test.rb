@@ -34,4 +34,35 @@ class PostTest < ActiveSupport::TestCase
     assert_equal original_permalink, @post.permalink
   end
 
+  test "should number posts sequentially" do
+    post_1 = Post.create!(@valid_post_params.call)
+    post_2 = Post.create!(@valid_post_params.call)
+    assert_equal post_2.placement, (post_1.placement + 1)
+  end
+
+  # next
+  test "next should return newer post" do
+    first = Post.create!(@valid_post_params.call)
+    third = Post.create!(@valid_post_params.call)
+    second = Post.create!(@valid_post_params.call)
+    third.update_attribute(:placement, (second.placement + 1))
+
+    assert_equal first.next, second
+    assert_equal second.next, third
+    assert_equal third.next, nil
+  end
+
+  # previous
+  test "previous should return older post" do
+    Post.all.collect(&:destroy)
+    first = Post.create!(@valid_post_params.call)
+    third = Post.create!(@valid_post_params.call)
+    second = Post.create!(@valid_post_params.call)
+    third.update_attribute(:placement, (second.placement + 1))
+
+    assert_equal first.previous, nil
+    assert_equal second.previous, first
+    assert_equal third.previous, second
+  end
+
 end
