@@ -18,3 +18,6 @@ en:
       create_contact:
         error: "Sorry, please provide your name, valid email address and message."
         success: "Thanks for the message! We'll get back to you as soon as possible."
+  time:
+    formats:
+      post: "%A %B, %d %Y"

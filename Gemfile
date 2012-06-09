@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'mongoid', '2.4.6'
 gem 'rails', '3.2.2'
+gem 'RedCloth', '4.2.3'
 
 # gem 'ruby-debug19', :require => 'ruby-debug'
 

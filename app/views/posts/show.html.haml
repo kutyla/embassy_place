@@ -2,5 +2,7 @@
   %h1
     = image_tag "posts/pencil.png", { alt: 'Pencil' }
     = @post.title
+  %p
+    Written on #{localize(@post.created_at, format: :post)}
 
-  = @post.content
+  = markdown(@post.content)
