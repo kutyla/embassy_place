@@ -1,5 +1,10 @@
 %section.padded.white
-  = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=41.5316,-87.4760&zoom=13&size=300x200&sensor=false&markers=color:0x333333%7C41.5316,-87.4760", { class: "right shadow" }
+  #map.shadow
+  - content_for :scripts do
+    :javascript
+      $(document).ready(function(){
+        Embassy.Map.init();
+      })
 
   .group
     %h1 Contact Us

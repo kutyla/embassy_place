@@ -8,6 +8,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
+    %script{ type: "text/javascript", src: "http://maps.googleapis.com/maps/api/js?sensor=false" }
+
   %body{ class: "#{controller_name} #{action_name}" }
     %section#modal
       %h1
