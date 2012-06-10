@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   def require_ssl
     if (request.protocol != "https://")
       options = { controller: controller_name, action: action_name, protocol: "https://" }
+      options.merge!({ host: ENV["SSL_HOST"] }) unless ENV["SSL_HOST"].blank?
       flash.keep
       redirect_to url_for(options), :status => 301 and return
     end
@@ -18,6 +19,7 @@ class ApplicationController < ActionController::Base
   def check_for_ssl
     if !use_ssl? && (request.protocol == "https://")
       options = { controller: controller_name, action: action_name, protocol: "http://" }
+      options.merge!({ host: ENV["HOST"] }) unless ENV["HOST"].blank?
       flash.keep
       redirect_to url_for(options), :status => 301 and return
     end
@@ -38,6 +40,12 @@ class ApplicationController < ActionController::Base
     return false if if_options.present? && !if_options.include?(action_name)
 
     true
+  end
+
+  def url_after_denied_access_when_signed_out
+    options = { protocol: "https://" }
+    options.merge!({ host: ENV["SSL_HOST"] }) unless ENV["SSL_HOST"].blank?
+    login_url(options)
   end
 
 end

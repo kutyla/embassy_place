@@ -35,5 +35,7 @@ EmbassyPlace::Application.configure do
   ENV['MONGO_URI'] = 'mongodb://127.0.0.1:27017/embassy-place-development'
   ENV["MAILER_TO"] = "steve@copyright1984.com"
   ENV["MAILER_FROM"] = "no-reply@embassy-place.com"
+  ENV["SSL_HOST"] = "secure.rails.dev"
+  ENV["HOST"] = "www.rails.dev"
 
 end
