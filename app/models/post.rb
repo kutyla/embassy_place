@@ -6,6 +6,7 @@ class Post
   field :content
   field :permalink
   field :placement
+  field :deleted_at, type: Time
 
   before_validation :set_permalink, if: :set_permalink?
   validates_uniqueness_of :permalink
@@ -18,6 +19,9 @@ class Post
       where({ permalink: string}).first
     end
 
+    def active
+      where({ deleted_at: nil })
+    end
   end
 
   def to_param
@@ -25,11 +29,15 @@ class Post
   end
 
   def next
-    Post.where({ placement: { "$gt" => self.placement } }).order_by([:placement, :asc]).first
+    Post.active.where({ placement: { "$gt" => self.placement } }).order_by([:placement, :asc]).first
   end
 
   def previous
-    Post.where({ placement: { "$lt" => self.placement } }).order_by([:placement, :desc]).first
+    Post.active.where({ placement: { "$lt" => self.placement } }).order_by([:placement, :desc]).first
+  end
+
+  def mark_as_deleted!
+    self.update_attribute(:deleted_at, Time.now)
   end
 
   private

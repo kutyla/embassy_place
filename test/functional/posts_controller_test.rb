@@ -2,9 +2,11 @@ require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
   def setup
-    @post = Post.create({
-      title: Faker::Lorem.sentence,
-      content: Faker::Lorem.paragraph })
+    @valid_post_params = lambda {
+      { title: Faker::Lorem.sentence,
+        content: Faker::Lorem.paragraph }
+    }
+    @post = Post.create(@valid_post_params.call)
     @user = User.create!({ email: Faker::Internet.email, password: "12345" })
   end
 
@@ -81,9 +83,11 @@ class PostsControllerTest < ActionController::TestCase
     use_ssl
     sign_in_as(@user)
 
-    assert_difference("Post.count", -1) do
+    assert_no_difference("Post.count", 0) do
       delete :destroy, { id: @post }
     end
+    @post.reload
+    assert_not_nil @post.deleted_at
 
     assert_redirected_to posts_path
   end
@@ -120,6 +124,17 @@ class PostsControllerTest < ActionController::TestCase
 
     assert_redirected_to post_path(assigns(:post))
     assert_equal assigns(:post).title, new_title
+  end
+
+  #
+  # deleted posts
+  #
+
+  test "should not show deleted posts" do
+    post = Post.create(@valid_post_params.call)
+    post.mark_as_deleted!
+    get :show, { id: post }
+    assert_redirected_to posts_path
   end
 
 end

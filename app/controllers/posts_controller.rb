@@ -5,11 +5,13 @@ class PostsController < ApplicationController
   before_filter :require_user, :require_ssl, only: @user_actions
 
   def index
-    @posts = Post.order_by([:placement, :desc]).page(params[:page]).per(PER_PAGE)
+    @posts = Post.active.order_by([:placement, :desc]).page(params[:page]).per(PER_PAGE)
   end
 
   def show
     @post = Post.find_by_permalink(params[:id])
+    redirect_if_deleted!
+
     @next = @post.next
     @previous = @post.previous
   end
@@ -34,11 +36,13 @@ class PostsController < ApplicationController
   # GET /posts/:permalink/edit
   def edit
     @post = Post.find_by_permalink(params[:id])
+    redirect_if_deleted!
   end
 
   # PUT /posts/:permalink
   def update
     @post = Post.find_by_permalink(params[:id])
+    redirect_if_deleted!
 
     if @post.update_attributes(params[:post])
       flash[:notice] = t("controllers.posts.update.success")
@@ -52,10 +56,17 @@ class PostsController < ApplicationController
   # DELETE /posts/:permalink
   def destroy
     @post = Post.find_by_permalink(params[:id])
+    redirect_if_deleted!
 
-    @post.destroy
+    @post.mark_as_deleted!
     flash[:notice] = t("controllers.posts.destroy.success")
     redirect_to posts_path
+  end
+
+  private
+
+  def redirect_if_deleted!
+    redirect_to posts_url({ protocol: "http://" }) and return unless @post.deleted_at.blank?
   end
 
 end

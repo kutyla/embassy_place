@@ -13,6 +13,15 @@ class PostTest < ActiveSupport::TestCase
     assert_equal @post._id, Post.find_by_permalink(@post.permalink)._id
   end
 
+  test "should find active posts" do
+    Post.all.collect(&:destroy)
+    active = Post.create!(@valid_post_params.call)
+    deleted = Post.create!(@valid_post_params.call)
+    assert Post.active.to_a.include?(deleted)
+    deleted.mark_as_deleted!
+    assert !Post.active.to_a.include?(deleted)
+  end
+
   test "should set permalink on create" do
     post = Post.new(@valid_post_params.call)
     assert_equal nil, post.permalink
@@ -63,6 +72,15 @@ class PostTest < ActiveSupport::TestCase
     assert_equal first.previous, nil
     assert_equal second.previous, first
     assert_equal third.previous, second
+  end
+
+  # mark_as_deleted!
+  test "mark_as_deleted should set deleted_at" do
+    post = Post.create!(@valid_post_params.call)
+    assert_nil post.deleted_at
+    post.mark_as_deleted!
+    post.reload
+    assert_not_nil post.deleted_at
   end
 
 end
