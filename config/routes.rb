@@ -1,4 +1,6 @@
 EmbassyPlace::Application.routes.draw do
+  get :sitemap, to: "sitemaps#index"
+
   get :login, to: "sessions#new"
   post :login, to: "sessions#create"
   match :logout, to: "sessions#logout"
@@ -9,6 +11,7 @@ EmbassyPlace::Application.routes.draw do
   post "contact", to: "home#create_contact"
 
   resources :posts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
