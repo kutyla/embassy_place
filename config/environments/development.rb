@@ -37,5 +37,6 @@ EmbassyPlace::Application.configure do
   ENV["MAILER_FROM"] = "no-reply@embassy-place.com"
   ENV["SSL_HOST"] = "secure.rails.dev"
   ENV["HOST"] = "www.rails.dev"
+  ENV["DOMAIN"] = "rails.dev"
 
 end
