@@ -5,6 +5,9 @@
     Blog Posts
 
   %br
-  = render @posts
+  - if @posts.blank?
+    %p Posts are coming soon!
+  - else
+    = render @posts
 
   = paginate @posts
