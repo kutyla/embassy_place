@@ -44,6 +44,7 @@
         %nav
           #banner.shadow
             .content
+			  = link_to root_path, { id: "nav-homepage", class: generate_link_class(gallery_path) }
               = link_to "Gallery", gallery_path, { id: "nav-gallery", class: generate_link_class(gallery_path) }
               = link_to "Features", features_path, { id: "nav-features", class: generate_link_class(features_path) }
               = link_to "Blog", posts_path, { id: "nav-posts", class: generate_link_class(posts_path) }
