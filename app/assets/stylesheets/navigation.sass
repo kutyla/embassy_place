@@ -7,9 +7,7 @@
   box-shadow: 0px 10px 7px 2px #052311
   margin-top: 20px
   nav
-    .shadow
-	  box-shadow: none 
-	#banner
+    #banner
       /*background: #333 url(image-path("nav/background.png")) repeat-x scroll 0px bottom*/
       display: block
       color: #666
@@ -28,13 +26,16 @@
           font-size: 1.3em
           color: #A3A3A3
           padding: 0.5em 1em 0.5em 1em
-          background: transparent url(image-path("nav/pipe.gif")) no-repeat scroll center bottom
+          background: transparent url(image-path("nav/pipe.gif")) no-repeat scroll right center
+		  display: inline
           &.last
             background: none
           &.live
             text-shadow: 0px 1px 1px #656565
             color: #000
-    .message
+    .shadow
+	  box-shadow: none 
+	.message
       color: #fff
       text-shadow: -1px -1px 2px #000
       padding:
