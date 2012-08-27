@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+	<head>
+		<title>Embassy Place Apartment</title>
+		<meta name="description" content="Embassy Place Apartments community is the premier residential community in Highland, IN">
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<link href="assets/styles.css" media="all" rel="stylesheet" type="text/css" />
+		<script src="assets/jquery-1.8.0-min.js" type="text/javascript"></script>
+		<meta content="authenticity_token" name="csrf-param" />
+		<meta content="tkJuS5NLgdgYCA9ow7zKbWT49x0k6JGZYg2taz3e3g0=" name="csrf-token" />
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+		<script type="text/javascript" language="javascript">
+		  //<![CDATA[
+			var _gaq = _gaq || [];
+			_gaq.push(["_setAccount", "UA-32459883-1"]);
+			_gaq.push(["_trackPageview"]);
+			
+			(function() {
+			  var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+			  ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+			  var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		  //]]>
+		</script>
+
+		<script>
+			var isClosed = true;
+			$(function() {
+			  $('.floorplanTrigger').click(function(e) {
+				var elm = $('#floorplan_popup');
+				var animation_time = 800;
+				
+				// figure out where to put it
+				var divH = elm.height();
+				var divW = elm.width();
+				
+				var winH = $(window).height();
+				var winW = $(window).width();
+				
+				elm.css({"left": (winW/2 - divW/2)+"px"});
+				
+				if (isClosed)
+				{
+					elm.animate({top: ""+(100*(winH/2 - divH/2)/winH)+"%" },animation_time);
+				}
+				else
+				{
+					elm.animate({top:"100%"},animation_time);
+				}
+				isClosed = !isClosed;
+			  });
+			});
+			$(document).keyup(
+				function(a)
+				{
+					if(!isClosed && a.keyCode==27)
+					{
+						var elm = $('#floorplan_popup');
+						var animation_time = 800;
+						elm.animate({top:"100%"},animation_time);
+						isClosed = !isClosed;
+					}
+				});
+			$(window).load(
+				function(a)
+				{
+					//
+				});
+		</script>
+	</head>
+	<body class="features">
+		<div class="header">
+			<div class="container">
+				<div class="nav">
+					<div class="banner">
+						<div class="content">
+							<a href="index.html" class="nav">Home</a>
+							<a href="gallery.html" class="nav">Gallery</a>
+							<a href="features.html" class="nav on">Features</a>
+                            <a href="contact.html" class="nav">Contact</a>
+							<a href="assets/embassy_place_brochure.pdf" target="_new" class="last" id="nav-brochure">Brochure</a>
+						</div>
+					</div>
+					<a href="index.html" class="logo" id="nav-homepage"><img alt="Embassy Place Apartments" src="assets/img/logo.png" /></a>
+				</div>
+			</div>
+		</div>
+		<div id="frame">
+			<div class="container" id="canvas">
+				<div id="page">
+					<div id="floorplan_popup" class="shadow" style="overflow:auto;">
+						<h1>Floorplans <span class="small"><a class="floorplanTrigger">(Close)</a></span></h1>
+						<div class="img" style="display:inline;margin:0px 6px;"><img class="floorplan" alt="The Barrister" src="assets/img/features/plan-ambassador.jpg" style="" /></div>
+                        <div class="img" style="display:inline;margin:0px 6px;"><img class="floorplan" alt="The Ambassador" src="assets/img/features/plan-barrister.jpg" style="" /></div>    
+					</div>
+					<div class="padded">
+						<div class="group features">
+							<div class="left" id="floorplan_trigger"><img alt="Floor plans" class="shadow pointer floorplanTrigger" id="link-floor-plan" src="assets/img/features/floorplan_thumb.jpg" /></div>
+							<div>
+								<h2>Features</h2>
+								<p>Embassy Place introduces distinctive, well appointed rental residences that offer a level of amenity, privacy and spacious living normally associated with a luxury home. Savor each day the features of your innovative, state-of-the-art home in an exclusive, maintenance-free community of premier rental residences.</p>
+								<ul>
+									<li>Highest Caliber of Maintenance</li>
+									<li>On-site Staff</li>
+									<li>Furnished Corporate Apartments Available</li>
+									<li>24 Hour On-call Emergency Service</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="group amenities">
+							<div class="left">
+								<a href="assets/embassy_place_brochure.pdf" target="_new"><img alt="Brochure" class="shadow" src="assets/img/features/brochure_thumb.jpg" /></a>
+							</div>
+							<div>
+								<h2>Amenities</h2>
+								<ul id="amenities">
+									<li>Brick Exterior</li
+									><li>Attached One-Car Garages</li
+									><li>Spacious Bedroom Suites with Full Baths</li
+									><li>Contemporary Kitchens, with Microwaves, Dishwashers, Ranges and Frost Free Refrigerators with Ice Makers</li
+									><li>Utility/Laundry Room with Full Size Washer and Dryer</li
+									><li>Fireplaces</li
+									><li>Sheltered Balconies or Patios</li
+									><li>Whirlpool Bathtubs in Select Units</li
+									><li>Vaulted Ceilings (2nd Floor Only)</li
+									><li>Smoke Alarms</li
+									><li>Cable Ready</li
+									><li>High Speed Internet Available</li
+									>
+								</ul>
+							</div>
+						</div>
+						<div class="clear"></div>		
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="content">
+				<p>
+					2219 Teakwood Circle #B, Highland, IN | (219) 924-6500<br />
+					<span class="copyright">© Copyright 2012, All Rights Reserved, Embassy Place Apartments</span>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

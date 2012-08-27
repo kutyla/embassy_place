@@ -1,0 +1,117 @@
+*{margin:0px;padding:0px}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,em,img,strike,tt,b,i,ol,ul,li,fieldset,form,label,legend,table,tbody,tfoot,thead,tr,th,td{margin:0px;padding:0px;border:0px;outline:0px;vertical-align:baseline;background:transparent;font-weight:normal; color:#d4e3ca;}
+ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0}
+a{text-decoration:none;cursor:pointer;}
+a img{outline:none;border:none;}
+.clear{display:block;height:0px;clear:both;visibility:hidden;width:100%;}
+.right{float:right;}
+.left{float:left;}
+.group img {margin-top:50px;}
+.hidden{display:none;}
+.pointer{cursor:pointer;}
+.small{font-size:0.7em;}
+h1,h2,h3,h4,h5,h6{color:#fad584;padding-bottom:18px; font-size:2em; line-height:1.2em; font-family: Baskerville, "Palatino Linotype", "Book Antiqua", Palatino, serif ;font-style:italic;}
+h1 {font-size:2.7em; line-height:1.2em;}
+a{font-style:italic; color:#fff;}
+p{padding-bottom:0.75em; font-size:1.1em; line-height:1.4em; color:#d6e4cc;}
+ul li {font-size:1.2em; line-height:1.2em;}
+.shadow{box-shadow:7px 6px 8px 0px #072c16; -moz-border-radius:7px 6px 8px 0px #072c16; -webkit-border-radius:7px 6px 8px 0px #072c16;}
+body {background-image:url("background_large.gif"); background-repeat: no-repeat; background-color:#0b4922; color:#d4e3ca; line-height:.9em;font-size:0.875em; font-family: Arial, Helvetica, sans-serif;}
+.container{width:900px;margin:0px auto;}
+/*MIGHT BE ABLE TO REMOVE THIS STYLE */body #frame #canvas #page {margin-left:0px; margin-top:0px;}
+
+
+/* HEADER START */
+.header {background-color:#043019;-moz-box-shadow: 0px 5px 7px 2px #072c16;-webkit-box-shadow: 0px 10px 7px 2px #052311;box-shadow: 0px 10px 7px 2px #072c16;
+/* Drop shadow in header For IE 8 */06.-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#052311')"; margin: 35px 0px 35px 0px;}
+.header .nav .banner{display:block;color:#666;text-align:center; padding:52px 1px 2px 2px; width:auto; background:none; float:right;}
+.header .nav .banner .content{line-height:2em; }
+.header .nav a{font-size:1.15em; letter-spacing:.1em; text-transform:uppercase; color:#a3a3a3;padding:8px 11px 8px 3px; display:inline;background: url("img/pipe.gif") no-repeat scroll right center transparent;font-style: normal;}
+.header .nav .content a.on {color:#748f56;}
+.header .nav a:hover {color:#748f56;}
+.header .nav a.last{background:none}
+.header .nav a.logo {background:none;}
+.header .nav a.logo img {padding:18px 0px 13px;}
+/* HEADER END */
+
+/*GALLERY START - INLINE STYLE ON GALLERY PAGE*/
+body.gallery #frame .container {width:800px;}
+.gallery #gallery{position:relative;display:inline-block;text-align:center;height:480px;width:640px;}
+.gallery #gallery .gallery-image{position:absolute;}
+.gallery #gallery #thumbnails{position:absolute;bottom:-50px;left:20px;right:20px;height:75px;}
+.gallery #gallery #thumbnails .thumbnail{float:left;}
+
+/* GALLERY END */
+
+/* FLOORPLAN OVERLAY START - INLINE STYLE ON FEATURES PAGE */
+#modal{z-index:999;position:fixed;top:100%;left:0px;right:0px;bottom:0px;background:transparent url("/assets/img/background-modal.png") repeat scroll 0px 0px;padding:5%;overflow:scroll;color:#999;text-align:center;}
+#modal h1,#modal h2,#modal h3,#modal h4,#modal h5,#modal h6{color:#ccc;}
+#modal a{color:#fff;}
+#floorplan_popup{position:fixed;top:100%;horizontal-align:center;width:1188px;height:670px;vertical-align:middle;text-align:center;	background: url("img/background-modal.png") repeat scroll 0 0 transparent; overflow:auto;}
+#floorplan_popup h1{text-align:left;margin-top:16px;margin-left:20px;}
+img.floorplan{width:560px; height:auto;}
+
+/* FLOORPLAN OVERLAY END */
+
+/* FEATURES START */
+.group .left {float:left; width:340px; min-height:280px;}
+.amenities .left {min-height:308px;}
+body.features .group {padding-bottom: 40px;}
+body.features .amenities {padding-bottom:0px;}
+/* FEATURES END */
+
+/* CONTACT START*/
+.white{background:transparent url("img/background_trans.png") repeat scroll 0px 0px;}
+.padded {padding:40px;margin:0px auto;}
+.contact .map_container{float:right;}
+.contact .map_link { float:right; position:relative; top:10px; }
+.contact .map_link a:link,
+.contact .map_link a:visited,
+.contact .map_link a:hover,
+.contact .map_link a:active
+ { color:#ffffff; }
+/*google map labels*/
+div.gmnoprint div div label, div.gmnoprint div span {color:black;}
+body.contact h1 {font-size:2em;}
+body.contact div#frame div#canvas {width:876px;}
+body.contact .padded {padding:40px;margin:0px auto 0px 8px; margin-left:18px;}
+/*CONTACT END*/
+
+/* FOOTER START */
+.footer {margin-top:35px;}
+.footer .content{width:900px; margin:0px auto; text-align:center;}
+.footer p {color:#9cb283; line-height:1.2em;}
+.footer a{color:#fff;}
+.footer span.copyright {font-size:0.775em; line-height:1em; padding-top:5px; display:block; color:#9cb283;}
+/* FOOTER END */
+
+/* HOMEPAGE START*/
+body.home .highlight img{width:529px; height:auto; margin-left:19px;}
+body.home.index #opening-description{padding:34px 5px 0px 18px;; background:none; text-align:left; width: 326px;}
+#opening-description p {color:#d6e4cc;}
+#opening-description p a {color:#fff; font-size:1.2em; font-family:Baskerville, "Palatino Linotype", "Book Antiqua", Palatino, serif;}
+/* HOMEPAGE END */
+
+
+/* GARBAGE CSS */
+/* div id frame can be removed */
+/*body #frame {background:none; border:0px none; margin-top:35px;}*/
+/* remove the DIV page - its not needed */
+/*body #frame #canvas #page{margin-left:200px;margin-top:-40px;margin-bottom:20px;position:relative}
+body #frame #canvas #page .padded{padding:40px;width:620px}
+body #frame #canvas #page .group{padding-bottom:3em}*/
+
+
+/* This seems to be part of the blog or editing the website itself 
+#user-header{background-color:#050505;text-align:center;color:#999}
+#user-header .container{text-align:left}
+#user-header .container span{display:inline-block;padding:0.6em 1em}
+#user-header .container a{color:#efefef}
+*/
+/* contact page form - this is not being used anymore
+form .field{display:block;padding-bottom:1em}
+form label{width:100%;display:block;line-height:1em}
+form input[type="text"],form input[type="password"],form textarea{width:98%;padding:1%;color:#666;background:transparent url("background-form-04e3cd0ffd0c5949152798e1283e8ae2.png") repeat scroll 0px 0px;border:1px solid #999}
+form input[type="submit"]{display:block;width:100%;padding:0.5em;text-align:left}
+*/
